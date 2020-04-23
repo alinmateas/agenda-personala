@@ -6,7 +6,9 @@ namespace agendaPersonala
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Agenda agenda = new Agenda();
+            Persoana persoana = new Persoana(agenda);
+            Activitate activitate = new Activitate();
         }
     }
 }
