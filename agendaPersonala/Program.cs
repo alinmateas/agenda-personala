@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace agendaPersonala
 {
@@ -14,6 +15,10 @@ namespace agendaPersonala
             activitate.Inceput = new Data(2000,2,3,4,5);
             activitate.Sfarsit = new Data(2000,2,3,4,6);
             agenda.Activitati.Add(activitate);
+
+            List<Activitate> activitatiGasite = agenda.Cautare(activitate.nume);
+
+            persoana.deleteAgenda();
             
         }
 

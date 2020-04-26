@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace agendaPersonala
 {
@@ -25,5 +26,20 @@ namespace agendaPersonala
             }
         }
 
+        public List<Activitate> Cautare(string nume)
+        {
+           List<Activitate> result = new List<Activitate>();
+           
+
+           foreach(Activitate act in Activitati)
+           {
+                if (act.nume.Contains(nume))
+                {
+                    result.Add(act);
+                }
+           }
+
+            return result;
+        }
     }
 }

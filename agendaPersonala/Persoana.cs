@@ -44,6 +44,11 @@ namespace agendaPersonala
             return result;
         }
 
+        internal void deleteAgenda()
+        {
+            this.Agenda = null;
+        }
+
         public Agenda createAgenda()
         {
             Agenda agendaPrima = new Agenda();
