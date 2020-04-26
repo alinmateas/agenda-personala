@@ -14,5 +14,6 @@ namespace agendaPersonala
 
         public Data Inceput { get; internal set; }
         public Data Sfarsit { get; internal set; }
+        public string Nume { get; internal set; }
     }
 }
