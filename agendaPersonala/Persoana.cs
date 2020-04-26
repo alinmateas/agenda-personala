@@ -8,17 +8,16 @@ namespace agendaPersonala
 
         private string nume;
         private string prenume;
-        private DateTime dataDeNastere; 
-        private Agenda agenda;
+        private Data dataDeNastere; 
+        public Agenda Agenda { get; internal set; }
 
-        public Persoana(Agenda agenda)
+        public Persoana()
         {
-            this.agenda = agenda;
         }
 
         public List<Activitate> hasActivitiesBetween(Data Inceput,Data Sfarsit)
         {
-            List<Activitate> allActivities = agenda.Activitati;
+            List<Activitate> allActivities = Agenda.Activitati;
             List<Activitate> result = new List<Activitate>();
 
             foreach (Activitate activitate in allActivities)
@@ -45,18 +44,28 @@ namespace agendaPersonala
             return result;
         }
 
-        public void deleteActivity(Activitate activitateDeSters)
+        public Agenda createAgenda()
         {
-            List<Activitate> allActivities = agenda.Activitati;
+            Agenda agendaPrima = new Agenda();
+            Data inceput = new Data(2020, 10, 19, 12, 45);
+            Data sfarsit = new Data(2020, 10, 19, 13, 45);
+            Activitate activitate = GenerateActivity(this, inceput, sfarsit);
+            agendaPrima.Activitati.Add(activitate);
+            this.Agenda = agendaPrima;
+            agendaPrima.Persoana = this;
 
-            for (int i = 0; i < allActivities.Count; i++)
-            {
-                if (allActivities[i].Nume.Contains(activitateDeSters.Nume))
-                {
-                    allActivities[i] = null;
-                }
-            }
-        }           
+            return agendaPrima;
+        }
+
+       
+        private static Activitate GenerateActivity(Persoana p, Data inceput, Data sfarsit)
+        {
+            Activitate activitate = new Activitate("Activitate_01", "spalat rufe");
+            activitate.Inceput = new Data(2020, 10, 19, 12, 45);
+            activitate.Sfarsit = new Data(2020, 10, 19, 13, 45);
+            activitate.Persoane.Add(p);
+            return activitate;
+        }
 
 
     }
