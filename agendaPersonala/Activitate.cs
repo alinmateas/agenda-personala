@@ -18,8 +18,8 @@ namespace agendaPersonala
             this.descriere = descriere;
         }
 
-        public Data Inceput { get; internal set; }
-        public Data Sfarsit { get; internal set; }
-        public List<Persoana> Persoane { get; internal set; }
+        public Data Inceput { get; set; }
+        public Data Sfarsit { get; set; }
+        public List<Persoana> Persoane { get; set; }
     }
 }

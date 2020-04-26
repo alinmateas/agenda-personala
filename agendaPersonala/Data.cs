@@ -13,11 +13,15 @@ namespace agendaPersonala
         public int Luna{ get; internal set; }
     
         public Data(int an, int luna, int zi, int ora, int minut) {
-            this.An = an;
-            this.Luna = luna;
-            this.Zi = zi;
-            this.Ora = ora;
-            this.Minut = minut;
+            An = an;
+            Luna = luna;
+            Zi = zi;
+            Ora = ora;
+            Minut = minut;
+        }
+
+        public Data()
+        {
         }
     }
 }
